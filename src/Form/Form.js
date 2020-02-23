@@ -16,10 +16,15 @@ export class Form extends Component {
     this.setState({ [e.target.name]: e.target.value})
   }
 
+  resetInputs = () => {
+    this.setState({ name: '', date: '', time: '', number: ''})
+  }
+
   createReservation = () => {
     const { addReservation } = this.props
     const newReservation = { ...this.state, id: Date.now() }
     addReservation(newReservation)
+    this.resetInputs() 
   }
 
   render() {
