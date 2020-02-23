@@ -1,5 +1,6 @@
 import React from 'react';
 import { ReservationCard } from '../ReservationCard/ReservationCard';
+import './Reservations.css'
 
 export const Reservations = ({ props, deleteReservation }) => {
   const reservations = props.map(res => {
@@ -7,8 +8,8 @@ export const Reservations = ({ props, deleteReservation }) => {
   })
 
   return (
-    <div>
+    <section>
       {reservations}
-    </div>
+    </section>
   )
 }

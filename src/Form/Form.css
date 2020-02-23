@@ -1,0 +1,21 @@
+.form-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+input {
+  padding: 0;
+  width: 150px;
+  height: 30px;
+  font-size: 1em;
+  margin: 0 30px;
+}
+
+.create {
+  background-color: teal;
+  color: #FFF;
+  width: 150px;
+  height: 34px;
+  margin-left: 30px;
+}

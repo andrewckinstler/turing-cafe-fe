@@ -1,0 +1,15 @@
+article {
+  background-color: #FFF;
+  margin: 15px;
+  width: 17%;
+  border: 5px teal solid;
+  border-radius: 5px;
+}
+
+.delete {
+  margin: 15px 0;
+  background-color: teal;
+  color: #FFF;
+  width: 150px;
+  height: 30px;
+}

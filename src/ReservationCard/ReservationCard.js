@@ -1,13 +1,18 @@
 import React from 'react';
+import './ReservationCard.css'
 
 export const ReservationCard = ({ id, name, date, time, number, deleteReservation }) => {
   return(
-    <div>
+    <article>
       <h3>{name}</h3>
       <p>{date}</p>
       <p>{time}</p>
       <p>Number of guests: {number}</p>
-      <button onClick={() => deleteReservation(id)}>Cancel reservation</button>
-    </div>
+      <button 
+        className='delete'
+        onClick={() => deleteReservation(id)}>
+          Cancel reservation
+      </button>
+    </article>
   )
 }
