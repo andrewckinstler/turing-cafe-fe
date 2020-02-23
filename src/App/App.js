@@ -20,7 +20,28 @@ class App extends Component {
 
   addReservation = reservation => {
     this.setState({ reservations: [...this.state.reservations, reservation]})
+    this.postReservation(reservation)
   }
+
+  postReservation = reservation => {
+    const url = 'http://localhost:3001/api/v1/reservations'
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(reservation),
+      headers: {
+        'Content-Type': 'application/json'  
+      }
+    }
+    
+    return fetch(url, options)
+            .then(res => {
+              if(!res.ok) {
+                throw Error('Error creating reservation')
+              }
+              return res.json()})
+  }
+
+
 
   render() {
     const { reservations, loading } = this.state;
