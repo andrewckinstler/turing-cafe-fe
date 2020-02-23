@@ -1,9 +1,9 @@
 import React from 'react';
 import { ReservationCard } from '../ReservationCard/ReservationCard';
 
-export const Reservations = props => {
-  const reservations = props.props.map(res => {
-    return <ReservationCard {...res} key={res.id} />
+export const Reservations = ({ props, deleteReservation }) => {
+  const reservations = props.map(res => {
+    return <ReservationCard {...res} key={res.id} deleteReservation={deleteReservation} />
   })
 
   return (

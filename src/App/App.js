@@ -41,7 +41,29 @@ class App extends Component {
               return res.json()})
   }
 
+  filterReservations = id => {
+    const filtered = this.state.reservations.filter(res => res.id !== id)
+    this.setState({ reservations: filtered })
+  }
 
+  deleteReservation = id => {
+    this.filterReservations(id)
+    const url = `http://localhost:3001/api/v1/reservations/${id}`
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+
+    return fetch(url, options)
+      .then(res => {
+        if(!res.ok) {
+          throw Error('Error cancelling reservation')
+        }
+        return res.json()
+      })
+  }
 
   render() {
     const { reservations, loading } = this.state;
@@ -53,7 +75,7 @@ class App extends Component {
         </div>
         {!loading
         ? <div className='resy-container'>
-        <Reservations props={reservations} />
+        <Reservations props={reservations} deleteReservation={this.deleteReservation} />
       </div>
       :<h2>Loading...</h2>}
         
